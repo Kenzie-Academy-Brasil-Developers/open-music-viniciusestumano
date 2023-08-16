@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: 1,
     title: "Magnetite",
@@ -23,7 +23,7 @@ const products = [
     category: 8,
     price: 50.0,
     img: "./src/assets/img/3.jpg",
-    band: "Nirvava",
+    band: "Nirvana",
     year: 1990,
   },
   {
@@ -37,7 +37,7 @@ const products = [
   },
 ];
 
-const categories = [
+export const categories = [
   "Todos",
   "Pop",
   "MPB",
