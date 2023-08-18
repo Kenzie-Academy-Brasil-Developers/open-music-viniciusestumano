@@ -1,3 +1,4 @@
+import{ darkModeAdd } from "./darkMode.js";
 import { products, categories } from "./productsData.js";
 /* Desenvolva sua lógica aqui ... */
 
@@ -8,7 +9,7 @@ import { products, categories } from "./productsData.js";
 //     return card
 // }
 
-function render(albums) {
+function render() {
     const albumsList = document.querySelector(".albums__list");
 
     products.forEach((products) => {
@@ -31,7 +32,7 @@ const createCard = ({id, title, category, price, img, band, year}) => {
     cardImg.alt = band;
 
     cardParag.classList.add("album__name-year");
-    cardParag.innerText = band + year;
+    cardParag.innerText = `${band} ${year}`;
 
     cardTitle.classList.add("album__title");
     cardTitle.innerText = title;
@@ -47,8 +48,8 @@ const createCard = ({id, title, category, price, img, band, year}) => {
     return card
 }
 
-function renderButtons (buttons) {
-    const genderButtons = document.querySelector("gender__buttons-list");
+function renderButtons () {
+    const genderButtons = document.querySelector(".gender__buttons-list");
 
     categories.forEach(()=>{
         const butonsCreate = createButtons(categories);
@@ -57,20 +58,40 @@ function renderButtons (buttons) {
 }
 
 const createButtons = (categories) => {
+
     const genderListButtons = document.querySelector(".gender__buttons-list");
 
-    const listButtons = document.createElement("li");
-    const genderButtons = document.createElement("button");
     
-    genderButtons.innerText = categories;
-    listButtons.append(genderButtons);
+    categories.forEach((nome) => {
+        const listButtons = document.createElement("li");
+        const genderButtons = document.createElement("button");
+        genderButtons.classList.add("gender__buttons-select");
+        
+        genderButtons.innerText = nome;
+        
+        listButtons.append(genderButtons);
+        
+        genderListButtons.append(listButtons);
 
-    genderListButtons.append(listButtons);
+        return genderButtons;
+    })
 
-    return genderButtons
 }
 
+const filterCategories = (products) => {
+    const buttonCategory = document.querySelector("button");
+
+    buttonCategory.addEventListener('click', () => {
+        const buttonFilter = products.filter(() => products.category = buttonCategory.value)
+
+        render(buttonFilter)
+    })
+
+}
+
+darkModeAdd();
 render();
 renderButtons();
 createCard();
 createButtons();
+filterCategories();

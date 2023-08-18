@@ -1,1 +1,171 @@
 /* Desenvolva sua estilização aqui ... */
+
+/* .dark__mode {
+  animation: appear 1s linear;
+} */
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    padding: 40px 0;
+}
+
+.darkMode__button {
+    display: flex;
+    height: 32px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+}
+.header__container > h1 {
+    height: 36px;
+    color: var(--color-grey-1);
+    font-size: var(--font-1);
+}
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+
+.genderButtons__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20%;
+    gap: 20px;
+}
+
+.genderButtons__container > h2 {
+    color: var(--color-grey-1);
+    font-size: var(--font-2);
+}
+
+.gender__buttons-list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 641px;
+    height: 100px;
+    gap: 20px;
+}
+
+.gender__buttons-list > li > button {
+    display: flex;
+    height: 32px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+    border-radius: 4px;
+    background-color: var(--color-grey-6);
+    border: 1px solid var(--color-grey-6);
+
+}
+.gender__buttons-list > li > button:hover {
+    color: var(--color-grey-8);
+    background-color: var(--color-grey-1);
+    border: 1px solid var(--color-grey-8);
+}
+
+.filter__container-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 20%;
+    color: var(--color-grey-1);
+}
+
+.filter__container-price > h2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.filter__container-input {
+    display: flex;
+    justify-content: center; 
+    margin: 0px 20%;
+}
+
+.filter__container-input > input {
+    display: flex;
+    justify-content: center;
+    outline: none;
+    width: 100%;
+    height: 20px;
+    border-radius: 9px;  
+    background: var(--color-brand-1);
+}
+
+.render__container > h2 {
+    display: flex;
+    margin-left: 20%;
+    padding: 25px 0;
+    font: var(--font-2);
+    color: var(--color-grey-1);
+}
+
+.albums__list {
+    display:grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(2, 0fr);
+    margin-top: 20px;
+    margin-bottom: 90px;
+    padding: 20px 25% ;
+    gap: 30px;
+}
+
+.album__container {
+    border-radius: 5px;
+    width: 308px;
+    height: 259px;
+    background-color: var(--color-grey-8);
+}
+
+.album__container > img {
+    border-radius: 5px 5px 0 0;
+    width: 308px;
+    height: 113px;
+}
+
+.album__container > p, h2, span, button {
+    margin-top: 15px;
+    padding: 0px 10px;
+}
+.album__container > p {
+    display: inline-flex;
+    align-items: flex-start; 
+    gap: 20px;
+    color: var(--color-grey-2);
+}
+
+.album__container > h2 {
+    margin-bottom: 50px;
+    color: var(--color-grey-1);
+}
+
+.album__price {
+    width: 60px;
+    font-size: var(--font-3);
+}
+
+.album__container > button  {
+    display: flex;
+    height: 32px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 220px;
+    margin-top: -25px;
+}
+
+.album__container > button:hover {
+    color: var(--color-grey-8);
+    background-color: var(--color-grey-1);
+    border: 1px solid var(--color-grey-1);
+    border-radius: 4px;
+}

@@ -16,18 +16,22 @@
   <body>
     <header class="header__container">
       <h1>open music</h1>
-      <button>dark mode</button>
+      <button class="darkMode__button">dark mode</button>
     </header>
     <main class="main__container">
       <section class="filter__container">
-        <div>
+        <div class="genderButtons__container">
           <h2>Gênero Musical</h2>
           <ul class="gender__buttons-list"></ul>
         </div>
-        <div>
-          <h2>Definir preço</h2>
-          <p>Até R$...</p>
-          <input type="range">
+        <div class="filterPrice__container">
+          <div class="filter__container-price">
+            <h2>Definir preço</h2>
+            <p>Até R$...</p>
+          </div>
+          <div class="filter__container-input">
+            <input type="range" min="22" max="89" value="50">
+          </div>
         </div>
       </section>
       <section class="render__container">
