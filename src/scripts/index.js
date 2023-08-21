@@ -24,7 +24,8 @@ const createCard = ({id, title, category, price, img, band, year}) => {
     const cardParag = document.createElement("p");
     const cardTitle = document.createElement("h2");
     const cardSpan = document.createElement("span");
-    const cardButton = document.createElement("Button")
+    const cardButton = document.createElement("Button");
+    const categorieAlbum = document.createElement("span");
 
     card.classList.add("album__container");
 
@@ -43,7 +44,10 @@ const createCard = ({id, title, category, price, img, band, year}) => {
     cardButton.classList.add("album__button")
     cardButton.innerText = "Comprar";
 
-    card.append(cardImg, cardParag, cardTitle, cardSpan, cardButton);
+    categorieAlbum.classList.add("album__category");
+    categorieAlbum.innerText = category;
+
+    card.append(cardImg, cardParag, cardTitle, cardSpan, cardButton, categorieAlbum);
 
     return card
 }
@@ -51,40 +55,49 @@ const createCard = ({id, title, category, price, img, band, year}) => {
 function renderButtons () {
     const genderButtons = document.querySelector(".gender__buttons-list");
 
-    categories.forEach(()=>{
-        const butonsCreate = createButtons(categories);
+    categories.forEach((element)=>{
+        const butonsCreate = createButtons(element);
+        // console.log(butonsCreate);
         genderButtons.appendChild(butonsCreate);
     });
 }
 
-const createButtons = (categories) => {
+const createButtons = (categorieName) => {
 
     const genderListButtons = document.querySelector(".gender__buttons-list");
 
     
-    categories.forEach((nome) => {
+    // categories.forEach((nome) => {
         const listButtons = document.createElement("li");
         const genderButtons = document.createElement("button");
         genderButtons.classList.add("gender__buttons-select");
         
-        genderButtons.innerText = nome;
+        genderButtons.innerText = categorieName;
         
-        listButtons.append(genderButtons);
+        // listButtons.append(genderButtons);
         
-        genderListButtons.append(listButtons);
+        // genderListButtons.append(listButtons);
 
         return genderButtons;
-    })
+    // })
 
 }
 
 const filterCategories = (products) => {
-    const buttonCategory = document.querySelector("button");
+    const buttonCategory = document.getElementsByClassName("gender__buttons-select");
+    const albumsList = document.querySelector(".albums__list");
 
-    buttonCategory.addEventListener('click', () => {
-        const buttonFilter = products.filter(() => products.category = buttonCategory.value)
+    // console.log('estuman');
+    // console.log(buttonCategory.value);
 
-        render(buttonFilter)
+    Object.values(buttonCategory).forEach((element) =>{
+        element.addEventListener('click', (event) => {
+            console.log(albumsList.childNodes);
+            console.log(event.target.innerText);
+            // const buttonFilter = products.filter(() => products.category = buttonCategory.value)
+    
+            // render(buttonFilter)
+        })
     })
 
 }
@@ -109,6 +122,5 @@ filterInputRange(products);
 darkModeAdd();
 render();
 renderButtons();
-createCard();
 createButtons();
 filterCategories();

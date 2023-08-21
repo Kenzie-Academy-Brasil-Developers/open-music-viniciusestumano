@@ -52,7 +52,7 @@
     gap: 20px;
 }
 
-.gender__buttons-list > li > button {
+.gender__buttons-list > button {
     display: flex;
     height: 32px;
     padding: 0px 8px;
@@ -62,9 +62,9 @@
     border-radius: 4px;
     background-color: var(--color-grey-6);
     border: 1px solid var(--color-grey-6);
-
 }
-.gender__buttons-list > li > button:hover {
+
+.gender__buttons-list > button:hover {
     color: var(--color-grey-8);
     background-color: var(--color-grey-1);
     border: 1px solid var(--color-grey-8);
@@ -150,6 +150,7 @@
 
 .album__price {
     width: 60px;
+    color: var(--color-grey-1);
     font-size: var(--font-3);
 }
 
@@ -161,11 +162,18 @@
     align-items: center;
     margin-left: 220px;
     margin-top: -25px;
+    border-radius: 4px;
+    background-color: var(--color-grey-6);
+    border: 1px solid var(--color-grey-6);
 }
 
 .album__container > button:hover {
+    border-radius: 4px;
     color: var(--color-grey-8);
     background-color: var(--color-grey-1);
     border: 1px solid var(--color-grey-1);
-    border-radius: 4px;
+}
+
+.album__category {
+    display: none;
 }

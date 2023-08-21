@@ -19,7 +19,7 @@ export const darkModeAdd = () => {
             localStorage.setItem('darkmode', JSON.stringify(true));
         } else {
             darkModeButton.innerText = "Dark Mode";
-            localStorage.setItem("darkmode", JSON.stringifyrin(false));
+            localStorage.setItem("darkmode", JSON.stringify(false));
         }
     })
 }
