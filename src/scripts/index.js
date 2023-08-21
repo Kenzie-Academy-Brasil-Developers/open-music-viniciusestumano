@@ -11,7 +11,7 @@ import { products, categories } from "./productsData.js";
 
 function render() {
     const albumsList = document.querySelector(".albums__list");
-
+    albumsList.innerHTML = "";
     products.forEach((products) => {
         const cardCreate = createCard(products);
         albumsList.appendChild(cardCreate);
@@ -89,6 +89,23 @@ const filterCategories = (products) => {
 
 }
 
+const filterInputRange = (array) => {
+
+    const inputRange = document.querySelector("#filter__input");
+
+    inputRange.addEventListener('input', () => {
+
+        const parag = document.querySelector("#filter__price");
+        
+        const filterRangeArray = array.filter((products) => products.price <= Number(inputRange.value));
+        
+        parag.innerText = `${parag.textContent}${inputRange.value}`;
+
+        render(filterRangeArray);
+    })
+} 
+
+filterInputRange(products);
 darkModeAdd();
 render();
 renderButtons();
