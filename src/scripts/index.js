@@ -9,10 +9,10 @@ import { products, categories } from "./productsData.js";
 //     return card
 // }
 
-function render() {
+function render(array) {
     const albumsList = document.querySelector(".albums__list");
     albumsList.innerHTML = "";
-    products.forEach((products) => {
+    array.forEach((products) => {
         const cardCreate = createCard(products);
         albumsList.appendChild(cardCreate);
     });
@@ -57,7 +57,6 @@ function renderButtons () {
 
     categories.forEach((element)=>{
         const butonsCreate = createButtons(element);
-        // console.log(butonsCreate);
         genderButtons.appendChild(butonsCreate);
     });
 }
@@ -66,18 +65,12 @@ const createButtons = (categorieName) => {
 
     const genderListButtons = document.querySelector(".gender__buttons-list");
 
-    
-    // categories.forEach((nome) => {
         const listButtons = document.createElement("li");
         const genderButtons = document.createElement("button");
         genderButtons.classList.add("gender__buttons-select");
         
         genderButtons.innerText = categorieName;
         
-        // listButtons.append(genderButtons);
-        
-        // genderListButtons.append(listButtons);
-
         return genderButtons;
     // })
 
@@ -87,16 +80,18 @@ const filterCategories = (products) => {
     const buttonCategory = document.getElementsByClassName("gender__buttons-select");
     const albumsList = document.querySelector(".albums__list");
 
-    // console.log('estuman');
-    // console.log(buttonCategory.value);
-
     Object.values(buttonCategory).forEach((element) =>{
         element.addEventListener('click', (event) => {
             console.log(albumsList.childNodes);
             console.log(event.target.innerText);
-            // const buttonFilter = products.filter(() => products.category = buttonCategory.value)
-    
-            // render(buttonFilter)
+            const categorie = categories.findIndex((categorie) => categorie === event.target.innerText);
+            const buttonFilter = products.filter((product) => product.category === categorie);
+            console.log(buttonFilter);
+            if(categorie === 0){
+                render(products);
+            }else{
+                render(buttonFilter);
+            }
         })
     })
 
@@ -112,7 +107,7 @@ const filterInputRange = (array) => {
         
         const filterRangeArray = array.filter((products) => products.price <= Number(inputRange.value));
         
-        parag.innerText = `${parag.textContent}${inputRange.value}`;
+        parag.innerText = `${inputRange.value}`;
 
         render(filterRangeArray);
     })
@@ -120,7 +115,7 @@ const filterInputRange = (array) => {
 
 filterInputRange(products);
 darkModeAdd();
-render();
+render(products);
 renderButtons();
 createButtons();
-filterCategories();
+filterCategories(products);

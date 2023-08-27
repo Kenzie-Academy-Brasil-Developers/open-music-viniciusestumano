@@ -177,3 +177,8 @@
 .album__category {
     display: none;
 }
+
+.filter__textValue {
+    display: flex;
+    
+}
